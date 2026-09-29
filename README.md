@@ -2,6 +2,70 @@
 
 Aplicativo web de finanças pessoais baseado no PRD: organize receitas, despesas e metas por uma conversa ou por formulários simples. Interface em português, responsiva, com temas claro e escuro.
 
+## Antes de entregar: veja e teste
+
+Execute o app conforme as instruções abaixo e abra <http://localhost:5173>. O [roteiro de teste manual](docs/TESTE-MANUAL.md) contém exemplos e resultados esperados para validar receitas, despesas, saldo, metas, edição, exclusão, acessibilidade e temas.
+
+## Entrega do desafio DIO
+
+**Estado da entrega:** projeto implementado e testes automatizados executados. A revisão pessoal do autor, os prints da conversa de desenvolvimento com a IA e a reflexão final ainda precisam ser concluídos antes do envio à DIO.
+
+### Resumo do aplicativo
+
+O Finanças em Dia ajuda iniciantes a registrar o que receberam e gastaram, entender o saldo do mês e acompanhar metas. A conversa prepara os registros para confirmação; formulários oferecem outra maneira de fazer a mesma tarefa. O usuário pode corrigir dados, desfazer a última exclusão e alternar entre os temas claro e escuro. Nesta primeira versão, tudo é armazenado no navegador.
+
+### Prompt final — PRD consolidado para reprodução
+
+O texto abaixo consolida o PRD, o complemento de Design Universal e as decisões desta primeira versão. É uma organização posterior dos requisitos, e não uma transcrição literal de uma única mensagem enviada à IA. Consulte também o [PRD original completo](docs/PRD.md) e o [complemento de acessibilidade](docs/ACESSIBILIDADE.md).
+
+> Crie do zero um aplicativo web responsivo de finanças pessoais chamado Finanças em Dia, em português brasileiro, para pessoas que estão começando a organizar o próprio dinheiro. Priorize clareza, linguagem simples e uma experiência conversacional.
+>
+> O fluxo principal deve ser: conversar → interpretar → conferir e confirmar → salvar → atualizar histórico e resumo → acompanhar metas. Ofereça também registro manual, sem depender exclusivamente da conversa.
+>
+> Implemente uma apresentação inicial, chat com histórico e sugestões, tela de transações, visão geral mensal e metas financeiras. Permita registrar receitas e despesas, identificando tipo, valor, descrição, categoria, data e origem. Categorias iniciais: alimentação, transporte, moradia, saúde, lazer, educação, compras, salário e outros. Use reais e valores em centavos para os cálculos.
+>
+> Exemplos de interação: “Gastei 35 no almoço”, “Recebi 3.500 de salário”, “Quanto gastei este mês?” e “Quero guardar 2.000 para uma viagem”. Informações ausentes ou ambíguas devem gerar um pedido de esclarecimento. Antes de salvar, permita confirmar, corrigir ou cancelar; depois, permita editar e excluir. Ofereça recuperação da última exclusão.
+>
+> O histórico deve permitir filtros por período e categoria. O resumo deve mostrar receitas, despesas, saldo, maior categoria de gasto e distribuição das despesas com valores em texto. As metas devem ter nome, valor desejado, valor reservado, prazo opcional e progresso. As observações do assistente devem ser educativas, baseadas nos dados e sem promessas de resultado financeiro.
+>
+> Aplique Design Universal em uma única experiência: navegação consistente, linguagem acessível, campos rotulados, estrutura semântica, contraste, foco visível, teclado, compatibilidade com leitores de tela, áreas de toque confortáveis, mensagens de erro explicativas e feedback após ações. Não dependa apenas de cores ou animações. Inclua um botão claro/escuro e lembre a preferência. Adapte a interface para celular, tablet e desktop.
+>
+> Para o protótipo inicial, implemente interpretação local de frases e armazenamento no navegador, explicitando que não há IA generativa integrada, conta ou sincronização. Não inclua integração bancária, pagamentos, investimentos, importação de extratos, múltiplas moedas ou compartilhamento de contas.
+>
+> Teste regras financeiras e os fluxos no navegador, incluindo acessibilidade nos dois temas e tamanhos de tela. Documente a execução e os limites reais. Crie um repositório GitHub e envie o código validado, sem segredos. Mantenha evidências reais do processo e da aplicação.
+
+### Capturas reais do aplicativo
+
+Dados fictícios, gerados em uma sessão de teste isolada. Estas são interações com o **assistente local do app**, não com um modelo generativo.
+
+**Conversa, confirmação dos registros e consulta do mês**
+
+![Conversa com receita de R$ 3.500, despesa de R$ 35 e consulta do saldo de R$ 3.465 no assistente local.](docs/images/conversa-local.png)
+
+**Resumo financeiro atualizado a partir dos registros**
+
+![Resumo mensal com entradas de R$ 3.500, saídas de R$ 35 e despesas concentradas em alimentação.](docs/images/resumo-financeiro.png)
+
+**Meta e tema escuro em tela de celular**
+
+<img src="docs/images/meta-mobile-escuro.png" alt="Interface móvel em tema escuro com a meta Minha viagem: R$ 500 reservados de R$ 2.000, progresso de 25%." width="390" />
+
+### Evidências das interações com a IA de desenvolvimento
+
+O projeto foi construído com auxílio de IA a partir do PRD fornecido pelo autor. Nesta conversa de desenvolvimento, o autor solicitou acessibilidade, botão claro/escuro, criação do projeto do zero, publicação no GitHub e alteração da visibilidade para pública. A implementação passou por correções orientadas pelos testes antes do push.
+
+**Pendente antes da entrega:** acrescentar prints reais desta conversa de desenvolvimento. As capturas do app acima não substituem essa evidência. Veja [como selecionar os trechos](docs/TESTE-MANUAL.md#evidências-para-a-dio). Nenhuma captura da conversa de desenvolvimento foi inventada ou simulada.
+
+### Reflexão sobre o processo — rascunho para revisão do autor
+
+**O que funcionou bem?** O PRD com exemplos de frases e critérios de sucesso tornou as tarefas concretas. A inclusão explícita de acessibilidade e tema claro/escuro levou esses requisitos para a implementação desde a base. Os testes ajudaram a conferir valores, persistência e ações de confirmação, edição e cancelamento.
+
+**O que não funcionou como o esperado?** A validação encontrou problemas no foco inicial dos formulários e no resumo após limpar filtros; ambos foram corrigidos. O ambiente de testes também precisou de bibliotecas adicionais para executar o navegador. O resultado ainda tem limites: o assistente interpreta regras locais e não compreende linguagem livre como um modelo generativo; os dados não sincronizam entre dispositivos.
+
+**O que o processo ensinou sobre conversar com IAs?** Exemplos concretos, limites de escopo e resultados esperados ajudam a transformar uma ideia em requisitos verificáveis. Pedir evidências de teste e distinguir uma funcionalidade implementada de uma proposta evita assumir que tudo está pronto. Revisar e testar as respostas continua sendo parte do trabalho do autor.
+
+Este rascunho descreve fatos observados na construção; o autor deve acrescentar sua própria experiência após testar o app. Não representa uma avaliação pessoal já realizada nem garante aprovação pela DIO.
+
 ## Executar
 
 Requer Node.js 22.12+ (recomendado: 24) e npm.
