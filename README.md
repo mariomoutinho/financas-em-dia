@@ -64,6 +64,8 @@ O projeto foi construído com auxílio de IA a partir do PRD fornecido pelo auto
 
 **O que o processo ensinou sobre conversar com IAs?** Exemplos concretos, limites de escopo e resultados esperados ajudam a transformar uma ideia em requisitos verificáveis. Pedir evidências de teste e distinguir uma funcionalidade implementada de uma proposta evita assumir que tudo está pronto. Revisar e testar as respostas continua sendo parte do trabalho do autor.
 
+Estruturei o prompt usando o **ChatGPT**, utilizando personas especializadas no local do **Copilot**. 
+
 Iniciei o projeto usando o **Lovable**, mas os creditos acabaram com apenas um prompt e o projeto não foi terminado. Utilizei o mesmo prompt e usei o **CODEX** para executar o projeto final.
 
 Este rascunho descreve fatos observados na construção; o autor deve acrescentar sua própria experiência após testar o app. Não representa uma avaliação pessoal já realizada nem garante aprovação pela DIO.
